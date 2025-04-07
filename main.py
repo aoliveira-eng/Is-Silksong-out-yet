@@ -7,10 +7,8 @@ from discord.ext import commands, tasks
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-
 intents = discord.Intents.default()
 intents.message_content = True
-
 bot = commands.Bot(command_prefix="$", intents=intents)
 
 
@@ -40,7 +38,7 @@ async def notification():
     elif release_date != "To be announced" and revealed == False:
         for guild in bot.guilds:
             if guild.system_channel:
-                await guild.system_channel.send("The release date has just been updated to: " + release_date)
+                await guild.system_channel.send("The release date has just been updated to: **" + release_date + "**")
         revealed = True
 
 
